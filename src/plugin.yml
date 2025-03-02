@@ -1,0 +1,7 @@
+name: BlowableObsidians
+author: [MineMalia]
+main: org.minemalia.blowable.BlowablePlugin
+version: 6.9
+spigot: 24194
+api-version: 1.21
+softdepend: [WorldGuard]

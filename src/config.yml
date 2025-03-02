@@ -1,0 +1,144 @@
+# BlowableObsidians Configuration
+
+# World Settings
+# Controls which worlds the plugin is active in
+# Each world can be enabled/disabled individually
+# You can add any world by copying the format below and using the world's name
+WorldSettings:
+  world:
+    enabled: true
+    # BedrockProtection: List of Y-levels where bedrock cannot be damaged by explosions
+    # This protects the bottom/top of the world from being broken
+    bedrockProtection:
+      - -64
+      - -63
+      - -62
+  world_nether:
+    enabled: true
+    bedrockProtection:
+      - 0
+      - 1
+      - 2
+      - 126
+      - 127
+  world_the_end:
+    enabled: true
+    bedrockProtection: []
+  # Example of adding a custom world:
+  # my_custom_world:
+  #   enabled: true
+  #   bedrockProtection: []
+
+# Explosion Settings
+# Controls how explosions affect blocks
+# - radius: How far from explosion center blocks can be damaged (in blocks)
+# - damage: How much health is removed from blocks per explosion
+# You can add custom explosion types by following the same format
+explosionSettings:
+  # Default settings used when no specific explosion type is matched
+  default:
+    radius: 3.0
+    damage: 1.0
+  # TNT explosion settings
+  tnt:
+    radius: 3.0
+    damage: 1.0
+  # Creeper explosion settings
+  creeper:
+    radius: 3.0
+    damage: 1.0
+  # Wither spawn explosion settings
+  witherCreation:
+    radius: 3.0
+    damage: 1.0
+  # Wither skull projectile explosion settings
+  witherProjectile:
+    radius: 3.0
+    damage: 1.0
+  # Wither block breaking ability settings
+  witherBlockEating:
+    damage: 1.0
+  # Settings for explosions caused by other plugins
+  customExplosions: 
+    radius: 3.0
+    damage: 1.0
+  # Example of adding a custom explosion type:
+  # myCustomExplosion:
+  #   radius: 4.0
+  #   damage: 2.0
+
+# Block Health Display Settings
+# When true, shows health even for undamaged blocks
+# When false, only shows health for damaged blocks
+alwaysSendHealth: true
+
+# Liquid Explosion Protection
+# Multiplier for explosion damage when in water/lava
+# 0.0 = no damage in liquids, 0.5 = half damage, 1.0 = full damage
+liquidMultiplier: 0.0
+
+# WorldGuard Integration
+# Settings for how the plugin interacts with WorldGuard regions
+worldGuardIntegration:
+  # When true, blocks in regions where explosions are disabled will be protected
+  # from explosions that occur outside the region
+  enabled: true
+  # When true, blocks in protected regions will always show 100% health
+  # When false, blocks can still be damaged if explosions are allowed in the region
+  alwaysFullHealth: true
+
+# Block Health Check Settings
+# Controls how players can check block health
+check:
+  # Item to use for checking block health (use Material name)
+  item: 'POTATO'
+  # Interaction type that triggers health check (RIGHT_CLICK_BLOCK or LEFT_CLICK_BLOCK)
+  type: 'RIGHT_CLICK_BLOCK'
+
+# Messages
+# Customize plugin messages
+message:
+  # Block health message shown to players
+  # <percent> = percentage of health remaining
+  # <health> = raw health points remaining
+  blockHealth: '&9Block health: &c<percent>% hp'
+  # Message shown when checking a block in a protected region
+  # Set to '' (empty string) to disable this message
+  protectedBlock: '&cThis block is not breakable.'
+  # Message shown when checking a block in a world where the plugin is disabled
+  # Set to '' (empty string) to disable this message
+  disabledWorld: '&cBlowable blocks are disabled in this world.'
+
+# Block Health Values
+# How much health each block type has
+# Higher values mean blocks take more explosions to break
+# You can add any block type by using its material name (lowercase with underscores)
+blocksHealth:
+  obsidian: 5.0
+  enchantment_table: 5.0
+  anvil: 5.0
+  ender_chest: 5.0
+  reinforced_deepslate: 5.0
+  deepslate_tile_wall: 5.0
+  deepslate: 5.0
+  sculk_shrieker: 5.0
+  sculk_catalyst: 5.0
+  sculk_sensor: 5.0
+  amethyst_block: 5.0
+  amethyst_cluster: 5.0
+  budding_amethyst: 5.0
+  calcite: 5.0
+  tuff: 5.0
+  # ALL: Default health for any block not specifically listed above
+  # If ALL is defined, any block not specifically listed will use this health value
+  # If ALL is removed, blocks not specifically listed will behave as in vanilla Minecraft
+  # (immune to explosions unless they're naturally destructible)
+  ALL: 5.0
+
+# Health Regeneration
+# Time in seconds until block health regenerates to maximum
+# 3600 = 1 hour, 0 = instant regeneration, -1 = no regeneration
+regenerationTime: 3600
+
+# Don't touch this
+Config Version: 12
